@@ -17,6 +17,7 @@
 - destroy buildings to limit human movement
 - elon tusk is gameshow host
 - alien names randomly generated strings
+- highscore reward: tesla car that was sent to space
 
 
 ## IDEA 3 - yes or no

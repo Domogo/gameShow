@@ -11,6 +11,9 @@
 - claw machine game show, you try to catch the humans
 - the more you catch, the higher the score
 - obstacles: suicide bombers, they kill you, you lose. dogs - dogs are good, you can't pick them up
+- blondes 30 points,
+- brunettes 40,
+- redheads rare, super fast, a lot of points
 
 
 ## IDEA 3 - yes or no

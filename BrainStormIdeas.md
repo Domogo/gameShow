@@ -6,7 +6,7 @@
 - there's a super cringe commentator saying super cringe stuff
 - wasd movement, grab onto things, wall run
 
-## IDEA 2 - Catch all the humans
+## IDEA 2 - Catch all the humans - *WINNER*
 - Aliens host game shows, too
 - claw machine game show, you try to catch the humans
 - the more you catch, the higher the score

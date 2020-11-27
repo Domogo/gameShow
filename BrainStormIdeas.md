@@ -15,6 +15,8 @@
 - brunettes 40,
 - redheads rare, super fast, a lot of points
 - destroy buildings to limit human movement
+- elon tusk is gameshow host
+- alien names randomly generated strings
 
 
 ## IDEA 3 - yes or no

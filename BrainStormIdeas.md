@@ -14,6 +14,7 @@
 - blondes 30 points,
 - brunettes 40,
 - redheads rare, super fast, a lot of points
+- ninja guy, can dodge hook
 - destroy buildings to limit human movement
 
 

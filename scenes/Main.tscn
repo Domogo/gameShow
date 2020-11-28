@@ -17,5 +17,9 @@ position = Vector2( 800, 400 )
 
 [node name="Man" parent="." instance=ExtResource( 2 )]
 position = Vector2( 31.0819, 556.104 )
-[connection signal="body_entered" from="WallLeft" to="Man" method="_on_WallLeft_body_entered"]
-[connection signal="body_entered" from="WallRight" to="Man" method="_on_WallRight_body_entered"]
+[connection signal="body_entered" from="WallLeft" to="Man" method="_on_Man_hits_WallLeft"]
+[connection signal="body_entered" from="WallLeft" to="Claw" method="_on_Claw_hits_WallLeft"]
+[connection signal="body_exited" from="WallLeft" to="Claw" method="_on_Claw_left_WallLeft"]
+[connection signal="body_entered" from="WallRight" to="Man" method="_on_Man_hits_WallRight"]
+[connection signal="body_entered" from="WallRight" to="Claw" method="_on_Claw_hits_WallRight"]
+[connection signal="body_exited" from="WallRight" to="Claw" method="_on_Claw_left_WallRight"]

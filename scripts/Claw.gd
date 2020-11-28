@@ -19,17 +19,17 @@ func _physics_process(_delta):
 	velocity = move_and_slide(velocity)
 
 
-func _on_Claw_hits_WallLeft(body):
+func _on_Claw_hits_WallLeft(_body):
 	touchingLeftWall = true
 
 
-func _on_Claw_hits_WallRight(body):
+func _on_Claw_hits_WallRight(_body):
 	touchingRightWall = true
 
 
-func _on_Claw_left_WallLeft(body):
+func _on_Claw_left_WallLeft(_body):
 	touchingLeftWall = false
 
 
-func _on_Claw_left_WallRight(body):
+func _on_Claw_left_WallRight(_body):
 	touchingRightWall = false

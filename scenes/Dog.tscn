@@ -22,6 +22,7 @@ tracks/0/keys = {
 }
 
 [node name="Dog" type="RigidBody2D"]
+rotation = -0.174533
 gravity_scale = 0.0
 script = ExtResource( 2 )
 

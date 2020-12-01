@@ -32,22 +32,26 @@ __meta__ = {
 
 [node name="Tween" type="Tween" parent="."]
 
-[node name="PlayButton" type="TextureButton" parent="."]
+[node name="PlayButton" type="TextureButton" parent="." groups=[
+"buttons",
+]]
 margin_left = 289.836
-margin_top = 449.72
+margin_top = 502.045
 margin_right = 329.836
-margin_bottom = 489.72
+margin_bottom = 542.045
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HowToButton" type="TextureButton" parent="."]
+[node name="HowToButton" type="TextureButton" parent="." groups=[
+"buttons",
+]]
 margin_left = 250.316
-margin_top = 449.642
+margin_top = 501.614
 margin_right = 290.316
-margin_bottom = 489.642
+margin_bottom = 541.614
 texture_normal = ExtResource( 6 )
 texture_pressed = ExtResource( 7 )
 __meta__ = {

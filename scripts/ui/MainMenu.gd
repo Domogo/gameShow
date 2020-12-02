@@ -25,14 +25,15 @@ var howToDialog = """For all our viewers out there that are unfamiliar with the 
 Our contestant has to catch as many humans as possible in the next two minutes. If he or she catches enough of those bipeds, they'll win
 a brand new, preserved in the vacuum of space, Tesla car!
 
-Here's the thing, not all humans are the same, some are harder to catch than others. Oh and there's dogs. We like those very much, so try to
-leave them be!
+Here's the thing, not all humans are the same, some are harder to catch than others. Oh and there's dogs. We like those very much, so try to leave them be!
+
+Use LEFT and RIGHT ARROW KEYS to move and SPACE to shoot the spaceship down to pick up a human!
 """
 
 onready var tween = $Tween
 
+
 func _ready():
-	register_buttons()
 	contestantName = get_random_contestant()
 	choose_text_to_display()
 	set_text_margins()
@@ -50,6 +51,22 @@ func get_random_contestant():
 	return participantNames[randi() % participantNames.size()]
 
 
+func choose_text_to_display():
+	if activeText == MAIN_MENU:
+		$RichTextLabel.text = mainMenuDialog.replace("#name", contestantName)
+		$RichTextLabel.scroll_active = false
+	if activeText == HOW_TO:
+		$RichTextLabel.text = howToDialog
+		$RichTextLabel.scroll_active = true
+
+
+func toggle_active_text():
+	if activeText == MAIN_MENU:
+		activeText = HOW_TO
+	else:
+		activeText = MAIN_MENU
+
+
 func appear():
 	tween.interpolate_property(self, "offset:x", 800, 0,
 					0.5, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
@@ -60,26 +77,3 @@ func disappear():
 	tween.interpolate_property(self, "offset:x", 0, 800,
 					0.4, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
 	tween.start()
-
-
-func choose_text_to_display():
-	if activeText == MAIN_MENU:
-		$RichTextLabel.text = mainMenuDialog.replace("#name", contestantName)
-		$RichTextLabel.scroll_active = false
-	if activeText == HOW_TO:
-		$RichTextLabel.text = howToDialog
-		$RichTextLabel.scroll_active = true
-
-
-func register_buttons():
-	var buttons = get_tree().get_nodes_in_group("buttons")
-	for button in buttons:
-		button.connect("pressed", self, "_on_button_pressed", [button.name])
-
-func _on_button_pressed(name):
-	match name:
-		"PlayButton":
-			activeText = MAIN_MENU
-		"HowToButton":
-			activeText = HOW_TO
-	choose_text_to_display()	

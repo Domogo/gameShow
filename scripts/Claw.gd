@@ -33,3 +33,7 @@ func _on_Claw_left_WallLeft(_body):
 
 func _on_Claw_left_WallRight(_body):
 	touchingRightWall = false
+
+
+func new_game():
+	pass # Replace with function body.

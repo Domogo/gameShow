@@ -11,6 +11,7 @@
 script = ExtResource( 6 )
 
 [node name="Claw" parent="." instance=ExtResource( 1 )]
+visible = false
 position = Vector2( 137.791, 63.4758 )
 
 [node name="WallLeft" parent="." instance=ExtResource( 3 )]
@@ -20,18 +21,20 @@ position = Vector2( 0, 400 )
 position = Vector2( 800, 400 )
 
 [node name="Man" parent="." instance=ExtResource( 2 )]
+visible = false
 position = Vector2( 31.0819, 556.104 )
 
 [node name="Dog" parent="." instance=ExtResource( 4 )]
+visible = false
 position = Vector2( 732.552, 556.549 )
 
 [node name="Screens" parent="." instance=ExtResource( 5 )]
-[connection signal="body_entered" from="WallLeft" to="Dog" method="_on_Dog_hits_WallLeft"]
 [connection signal="body_entered" from="WallLeft" to="Man" method="_on_Man_hits_WallLeft"]
+[connection signal="body_entered" from="WallLeft" to="Dog" method="_on_Dog_hits_WallLeft"]
 [connection signal="body_entered" from="WallLeft" to="Claw" method="_on_Claw_hits_WallLeft"]
 [connection signal="body_exited" from="WallLeft" to="Claw" method="_on_Claw_left_WallLeft"]
-[connection signal="body_entered" from="WallRight" to="Dog" method="_on_Dog_hits_WallRight"]
 [connection signal="body_entered" from="WallRight" to="Man" method="_on_Man_hits_WallRight"]
+[connection signal="body_entered" from="WallRight" to="Dog" method="_on_Dog_hits_WallRight"]
 [connection signal="body_entered" from="WallRight" to="Claw" method="_on_Claw_hits_WallRight"]
 [connection signal="body_exited" from="WallRight" to="Claw" method="_on_Claw_left_WallRight"]
 [connection signal="start_game" from="Screens" to="." method="new_game"]

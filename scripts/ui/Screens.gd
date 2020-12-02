@@ -18,7 +18,6 @@ func register_buttons():
 func _on_button_pressed(name):
 	match name:
 		"PlayButton":
-			print("play")
 			change_screen(null)
 			emit_signal("start_game")
 		"HowToButton":

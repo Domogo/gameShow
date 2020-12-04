@@ -1,10 +1,9 @@
-extends RigidBody2D
+extends KinematicBody2D
 
 var dogDirection = -400
 
 func move(delta):
-	linear_velocity = Vector2(dogDirection, 0)
-	position += linear_velocity * delta
+	position.x += dogDirection * delta
 
 
 func _physics_process(delta):
@@ -14,13 +13,3 @@ func _physics_process(delta):
 
 func toggleDirection():
 	dogDirection *= -1
-
-
-func _on_Dog_hits_WallLeft(body):
-	if(get_instance_id() == body.get_instance_id()):
-		toggleDirection()
-
-
-func _on_Dog_hits_WallRight(body):
-	if(get_instance_id() == body.get_instance_id()):
-		toggleDirection()

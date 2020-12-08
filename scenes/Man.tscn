@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/man.png" type="Texture" id=1]
-[ext_resource path="res://scripts/manMovement.gd" type="Script" id=2]
+[ext_resource path="res://scripts/MobMovement.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -25,6 +25,8 @@ tracks/0/keys = {
 [node name="Man" type="KinematicBody2D"]
 scale = Vector2( 3, 3 )
 script = ExtResource( 2 )
+pointsToGive = 10
+speed = 150
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

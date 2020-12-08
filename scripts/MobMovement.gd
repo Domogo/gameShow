@@ -1,9 +1,11 @@
 extends KinematicBody2D
+export (int) var pointsToGive
 
-var direction = 300
+export (int) var speed = 300
+
 
 func move(delta):
-	position.x += direction * delta
+	position.x += speed * delta
 
 
 func _physics_process(delta):
@@ -12,6 +14,6 @@ func _physics_process(delta):
 
 
 func toggleDirection():
-	direction *= -1
+	speed *= -1
 
 

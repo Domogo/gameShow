@@ -24,6 +24,7 @@ tracks/0/keys = {
 
 [node name="GingerMan" type="KinematicBody2D"]
 rotation = -0.174533
+scale = Vector2( 1.5, 1.5 )
 script = ExtResource( 1 )
 pointsToGive = 50
 speed = 400
@@ -32,7 +33,6 @@ speed = 400
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

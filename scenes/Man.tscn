@@ -23,7 +23,7 @@ tracks/0/keys = {
 }
 
 [node name="Man" type="KinematicBody2D"]
-scale = Vector2( 3, 3 )
+scale = Vector2( 1.5, 1.5 )
 script = ExtResource( 2 )
 pointsToGive = 10
 speed = 150

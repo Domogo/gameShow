@@ -24,7 +24,7 @@ tracks/0/keys = {
 
 [node name="RedheadWoman" type="KinematicBody2D"]
 rotation = -0.151844
-scale = Vector2( 2.5, 2.5 )
+scale = Vector2( 1.5, 1.5 )
 script = ExtResource( 2 )
 pointsToGive = 100
 speed = 500

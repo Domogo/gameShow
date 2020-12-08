@@ -23,7 +23,7 @@ tracks/0/keys = {
 }
 
 [node name="BlondeMan" type="KinematicBody2D"]
-rotation = -0.151844
+rotation = -0.0759218
 script = ExtResource( 2 )
 pointsToGive = 20
 speed = 200

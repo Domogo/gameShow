@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/Claw.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Man.tscn" type="PackedScene" id=2]
@@ -6,9 +6,15 @@
 [ext_resource path="res://scenes/Dog.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/ui/Screens.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scripts/Main.gd" type="Script" id=6]
+[ext_resource path="res://scenes/BlondeWoman.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/BlondeMan.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/BrownhairMan.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/GingerMan.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/RedheadWoman.tscn" type="PackedScene" id=11]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 6 )
+Mob = [ ExtResource( 2 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 11 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ]
 
 [node name="Claw" parent="." instance=ExtResource( 1 )]
 visible = false
@@ -20,21 +26,11 @@ position = Vector2( 0, 400 )
 [node name="WallRight" parent="." instance=ExtResource( 3 )]
 position = Vector2( 800, 400 )
 
-[node name="Man" parent="." instance=ExtResource( 2 )]
-visible = false
-position = Vector2( 31.0819, 556.104 )
-
-[node name="Dog" parent="." instance=ExtResource( 4 )]
-visible = false
-position = Vector2( 732.552, 556.549 )
-
 [node name="Screens" parent="." instance=ExtResource( 5 )]
-[connection signal="body_entered" from="WallLeft" to="Man" method="_on_Man_hits_WallLeft"]
-[connection signal="body_entered" from="WallLeft" to="Dog" method="_on_Dog_hits_WallLeft"]
-[connection signal="body_entered" from="WallLeft" to="Claw" method="_on_Claw_hits_WallLeft"]
-[connection signal="body_exited" from="WallLeft" to="Claw" method="_on_Claw_left_WallLeft"]
-[connection signal="body_entered" from="WallRight" to="Man" method="_on_Man_hits_WallRight"]
-[connection signal="body_entered" from="WallRight" to="Dog" method="_on_Dog_hits_WallRight"]
-[connection signal="body_entered" from="WallRight" to="Claw" method="_on_Claw_hits_WallRight"]
-[connection signal="body_exited" from="WallRight" to="Claw" method="_on_Claw_left_WallRight"]
+
+[node name="EnemyTimer" type="Timer" parent="."]
+one_shot = true
+[connection signal="body_entered" from="WallLeft" to="." method="_on_WallLeft_body_entered"]
+[connection signal="body_entered" from="WallRight" to="." method="_on_WallRight_body_entered"]
 [connection signal="start_game" from="Screens" to="." method="new_game"]
+[connection signal="timeout" from="EnemyTimer" to="." method="_on_EnemyTimer_timeout"]

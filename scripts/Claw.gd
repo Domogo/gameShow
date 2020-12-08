@@ -14,6 +14,15 @@ func get_input():
 		velocity.x -= 1
 	velocity = velocity.normalized() * speed
 
+
+#func shoot():
+	#velocity.x = 0
+	
+
+func _input(ev):
+	if ev.is_action_pressed('ui_accept'):
+		pass
+
 func _physics_process(_delta):
 	get_input()
 	velocity = move_and_slide(velocity)
@@ -34,6 +43,3 @@ func _on_Claw_left_WallLeft(_body):
 func _on_Claw_left_WallRight(_body):
 	touchingRightWall = false
 
-
-func new_game():
-	pass # Replace with function body.

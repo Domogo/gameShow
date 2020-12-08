@@ -1,14 +1,13 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/dog2.png" type="Texture" id=1]
-[ext_resource path="res://scripts/Dog.gd" type="Script" id=2]
+[ext_resource path="res://assets/blondeWoman.png" type="Texture" id=1]
+[ext_resource path="res://scripts/MobMovement.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Walk"
 length = 0.5
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rotation_degrees")
 tracks/0/interp = 1
@@ -19,13 +18,15 @@ tracks/0/keys = {
 "times": PoolRealArray( 0.1, 0.2, 0.3, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 0.0, 10.0, 0.0, -10.0 ]
+"values": [ 0.0, 8.7, 0.0, -8.7 ]
 }
 
-[node name="Dog" type="KinematicBody2D"]
-rotation = 0.0865617
-scale = Vector2( 2, 2 )
+[node name="KinematicBody2D" type="KinematicBody2D"]
+rotation = -0.151844
+scale = Vector2( 2.5, 2.5 )
 script = ExtResource( 2 )
+pointsToGive = 30
+speed = 250
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

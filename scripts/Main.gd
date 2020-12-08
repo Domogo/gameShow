@@ -3,6 +3,10 @@ extends Node2D
 # 0-man, 1-blondeWoman, 2-dog, 3-redheadWoman, 4-blondeMan, 5-brownHairMan, 6-gingerMan
 export (Array, PackedScene) var Mob
 
+var CONTESTANT_LOOKING_LEFT = preload("res://assets/contestantLookingLeft.png")
+var CONTESTANT_LOOKING_DOWN = preload("res://assets/contestantLookingDown.png")
+var CONTESTANT_LOOKING_RIGHT = preload("res://assets/contestantLookingRight.png")
+
 var mobCounter = 1
 
 
@@ -14,7 +18,13 @@ func new_game():
 	$Claw.visible = true
 	$EnemyTimer.wait_time = 1
 	$EnemyTimer.start()
+	$Background/Image.visible = true
 	print($EnemyTimer)
+
+
+func _process(_delta):
+	contestant_animation()
+
 
 
 func _on_WallLeft_body_entered(body):
@@ -32,6 +42,7 @@ func _on_WallRight_body_entered(body):
 
 func _on_EnemyTimer_timeout():
 	var mob
+	randomize()
 	var rollRange = floor(rand_range(0, 20))
 	print(rollRange)
 	
@@ -76,3 +87,12 @@ func _on_EnemyTimer_timeout():
 	if(mobCounter <= 10):
 		$EnemyTimer.wait_time = rand_range(1,2)
 		$EnemyTimer.start()
+
+
+func contestant_animation():
+	if $Claw.position.x < 200:
+		$Background/Image.texture = CONTESTANT_LOOKING_LEFT
+	elif $Claw.position.x > 400:
+		$Background/Image.texture = CONTESTANT_LOOKING_RIGHT
+	else:
+		$Background/Image.texture = CONTESTANT_LOOKING_DOWN

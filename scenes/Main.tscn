@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/Claw.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Man.tscn" type="PackedScene" id=2]
@@ -11,26 +11,41 @@
 [ext_resource path="res://scenes/BrownhairMan.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/GingerMan.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/RedheadWoman.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/contestantLookingDown.png" type="Texture" id=12]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 6 )
 Mob = [ ExtResource( 2 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 11 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ]
 
+[node name="Screens" parent="." instance=ExtResource( 5 )]
+
+[node name="Background" type="ParallaxBackground" parent="."]
+
+[node name="Image" type="TextureRect" parent="Background"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Claw" parent="." instance=ExtResource( 1 )]
 visible = false
 position = Vector2( 137.791, 63.4758 )
+z_index = 1
 
 [node name="WallLeft" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, 400 )
+z_index = 1
 
 [node name="WallRight" parent="." instance=ExtResource( 3 )]
 position = Vector2( 800, 400 )
-
-[node name="Screens" parent="." instance=ExtResource( 5 )]
+z_index = 1
 
 [node name="EnemyTimer" type="Timer" parent="."]
 one_shot = true
+[connection signal="start_game" from="Screens" to="." method="new_game"]
 [connection signal="body_entered" from="WallLeft" to="." method="_on_WallLeft_body_entered"]
 [connection signal="body_entered" from="WallRight" to="." method="_on_WallRight_body_entered"]
-[connection signal="start_game" from="Screens" to="." method="new_game"]
 [connection signal="timeout" from="EnemyTimer" to="." method="_on_EnemyTimer_timeout"]

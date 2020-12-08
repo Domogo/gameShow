@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/howToButton.png-8390790699cc48a1611bba8e41d8ca60.stex"
+path="res://.import/contestantLookingLeft.png-1b5f6d51df0e9ec4b1a4da4e070de80b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/howToButton.png"
-dest_files=[ "res://.import/howToButton.png-8390790699cc48a1611bba8e41d8ca60.stex" ]
+source_file="res://assets/contestantLookingLeft.png"
+dest_files=[ "res://.import/contestantLookingLeft.png-1b5f6d51df0e9ec4b1a4da4e070de80b.stex" ]
 
 [params]
 

@@ -4,10 +4,10 @@
 [ext_resource path="res://scripts/Claw.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16.3043, 32.1918 )
+extents = Vector2( 16.3043, 11.94 )
 
 [node name="Claw" type="KinematicBody2D"]
-scale = Vector2( 2, 2 )
+scale = Vector2( 3, 3 )
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

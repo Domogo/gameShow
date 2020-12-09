@@ -1,13 +1,13 @@
 extends Node2D
 
-# 0-man, 1-blondeWoman, 2-dog, 3-redheadWoman, 4-blondeMan, 5-brownHairMan, 6-gingerMan
+# 0-man, 1-blondeWoman, 2-dog, 3-redheadWoman, 4-blondeMan, 5-brownHairMan, 6-gingerMan 7-ninja
 export (Array, PackedScene) var Mob
 
 var CONTESTANT_LOOKING_LEFT = preload("res://assets/contestantLookingLeft.png")
 var CONTESTANT_LOOKING_DOWN = preload("res://assets/contestantLookingDown.png")
 var CONTESTANT_LOOKING_RIGHT = preload("res://assets/contestantLookingRight.png")
 
-var mobCounter = 1
+var mobCounter = 0
 
 
 func _ready():
@@ -28,27 +28,27 @@ func _process(_delta):
 
 
 func _on_WallLeft_body_entered(body):
-	for i in self.get_children():
-		if(i.get_instance_id() == body.get_instance_id()):
-			i.toggleDirection()
+		for i in self.get_children():
+			if(i.get_instance_id() == body.get_instance_id() and body.get_instance_id() != $Claw.get_instance_id()):
+				i.toggleDirection()
 		
 
 
 func _on_WallRight_body_entered(body):
 	for i in self.get_children():
-		if(i.get_instance_id() == body.get_instance_id()):
+		if(i.get_instance_id() == body.get_instance_id() and body.get_instance_id() != $Claw.get_instance_id()):
 			i.toggleDirection()
 
 
 func _on_EnemyTimer_timeout():
 	var mob
 	randomize()
-	var rollRange = floor(rand_range(0, 20))
+	var rollRange = floor(rand_range(0, 21))
 	print(rollRange)
 	
 	#man
 	if rollRange >= 0 and rollRange <= 5:
-		mob = Mob[0].instance()
+		mob = Mob[7].instance()
 		mob.position = Vector2(rand_range(50, 750), 550)
 		add_child(mob)
 	#blondeWoman	
@@ -81,8 +81,10 @@ func _on_EnemyTimer_timeout():
 		mob = Mob[3].instance()
 		mob.position = Vector2(rand_range(50, 750), 550)
 		add_child(mob)
-	
-	print(mob)
+	elif rollRange == 21 :
+		mob = Mob[7].instance()
+		mob.position = Vector2(rand_range(50, 750), 550)
+		add_child(mob)
 	mobCounter += 1
 	if(mobCounter <= 10):
 		$EnemyTimer.wait_time = rand_range(1,2)
@@ -96,3 +98,7 @@ func contestant_animation():
 		$Background/Image.texture = CONTESTANT_LOOKING_RIGHT
 	else:
 		$Background/Image.texture = CONTESTANT_LOOKING_DOWN
+
+
+func _on_Claw_pickedUpHuman():
+	mobCounter -= 1

@@ -1,45 +1,68 @@
 extends KinematicBody2D
 
 export (int) var speed = 400
+export (int) var shootingSpeed = 5
 
 var velocity = Vector2()
+var hitFloor = false
 var touchingLeftWall = false
 var touchingRightWall = false
+var shooting = false
 
 func get_input():
 	velocity = Vector2()
-	if Input.is_action_pressed('ui_right') and not touchingRightWall:
+	#dok se vraca gore ne mici po x i vracaj po y(i dalje mozes micat po x iz nekog razloga)
+	if hitFloor:
+		velocity.x = 0
+		velocity.y -= 1
+	#dok puca ne mici po x i spustaj po y
+	elif shooting:
+		velocity.x = 0
+		velocity.y += 1
+	elif Input.is_action_pressed('ui_right') and not touchingRightWall:
 		velocity.x += 1
-	if Input.is_action_pressed('ui_left') and not touchingLeftWall:
+	elif Input.is_action_pressed('ui_left') and not touchingLeftWall:
 		velocity.x -= 1
-	velocity = velocity.normalized() * speed
 
-
-#func shoot():
-	#velocity.x = 0
-	
 
 func _input(ev):
 	if ev.is_action_pressed('ui_accept'):
-		pass
+		shooting = true
+
 
 func _physics_process(_delta):
 	get_input()
+	if shooting or hitFloor:
+		velocity *= speed * shootingSpeed
+	else:	
+		velocity *= speed
 	velocity = move_and_slide(velocity)
 
 
-func _on_Claw_hits_WallLeft(_body):
-	touchingLeftWall = true
+func _on_WallLeft_body_entered(body):
+	if(body.get_instance_id() == 1299):
+		touchingLeftWall = true
 
 
-func _on_Claw_hits_WallRight(_body):
-	touchingRightWall = true
+func _on_WallRight_body_entered(body):
+	if(body.get_instance_id() == 1299):
+		touchingRightWall = true
 
 
-func _on_Claw_left_WallLeft(_body):
-	touchingLeftWall = false
+func _on_WallLeft_body_exited(body):
+	if(body.get_instance_id() == 1299):
+		touchingLeftWall = false
 
 
-func _on_Claw_left_WallRight(_body):
-	touchingRightWall = false
+func _on_WallRight_body_exited(body):
+	if(body.get_instance_id() == 1299):
+		touchingRightWall = false
 
+
+func _on_Floor_body_entered(body):
+	hitFloor = true
+	
+
+func _on_Ceiling_body_entered(body):
+	shooting = false
+	hitFloor = false

@@ -28,15 +28,15 @@ func _process(_delta):
 
 
 func _on_WallLeft_body_entered(body):
-	for i in self.get_children():
-		if(i.get_instance_id() == body.get_instance_id()):
-			i.toggleDirection()
+		for i in self.get_children():
+			if(i.get_instance_id() == body.get_instance_id() and body.get_instance_id() != 1299):
+				i.toggleDirection()
 		
 
 
 func _on_WallRight_body_entered(body):
 	for i in self.get_children():
-		if(i.get_instance_id() == body.get_instance_id()):
+		if(i.get_instance_id() == body.get_instance_id() and body.get_instance_id() != 1299):
 			i.toggleDirection()
 
 

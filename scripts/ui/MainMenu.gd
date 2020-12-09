@@ -6,7 +6,9 @@ var participantNames = [
 	"Ford Prefect",
 	"Marvin",
 	"Leeloo",
-	"J'onn J'onzz"
+	"J'onn J'onzz",
+	"Zaphod Beeblebrox",
+	"Trillian"
 ]
 const MAIN_MENU = "mainMenu"
 const HOW_TO = "howTo"
@@ -28,6 +30,20 @@ a brand new, preserved in the vacuum of space, Tesla car!
 Here's the thing, not all humans are the same, some are harder to catch than others. Oh and there's dogs. We like those very much, so try to leave them be!
 
 Use LEFT and RIGHT ARROW KEYS to move and SPACE to shoot the spaceship down to pick up a human!
+"""
+
+var gameLostDialog = """D'awww shucks!! If I weren't getting paid to keep this smile on me at all times, I'd
+be looking pretty sad right now. Looks like you wont be driving the Tesla home. Better luck next time!
+
+Flixtrax' and Flixtraxes, looks like our contestant of the evening, #name, is going home empty tentacled.
+I'm your host Xteve Har'x'vai and this was *CATCH THE HUMANS*. Stay tuned for our next episode, live every
+Wednesday in every space sector, especially Eroticon Six!
+"""
+
+var gameWonDialog = """Dearest Flixtrax' and Flixtraxes, three-eyed, seven-eared or triple breasted, doesn't matter -
+ *WE GOT OUTSELVES A WINNER* and he's crawling up the stage right now! 
+
+A big round of applause for #name, everyone! Come and get your reward - the Tesla car! How're you going to drive it, I wonder..
 """
 
 onready var tween = $Tween
@@ -53,8 +69,8 @@ func get_random_contestant():
 
 func choose_text_to_display():
 	if activeText == MAIN_MENU:
-		$RichTextLabel.text = mainMenuDialog.replace("#name", contestantName)
-		$RichTextLabel.scroll_active = false
+		$RichTextLabel.text = gameWonDialog.replace("#name", contestantName)
+		$RichTextLabel.scroll_active = true
 	if activeText == HOW_TO:
 		$RichTextLabel.text = howToDialog
 		$RichTextLabel.scroll_active = true

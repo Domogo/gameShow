@@ -1,8 +1,12 @@
 extends KinematicBody2D
+
 signal pickedUpHuman
 
-export (int) var speed = 4
-export (int) var shootingSpeed = 5
+var flyingSprite = preload("res://assets/claw.png")
+var shootingSprite = preload("res://assets/clawShooting.png")
+
+export (int) var speed = 10
+export (int) var shootingSpeed = 20
 
 var score = 0
 var velocity = Vector2()
@@ -25,15 +29,15 @@ func get_input():
 		velocity.x -= 1
 	elif Input.is_action_pressed('ui_right') and not touchingRightWall:
 		velocity.x += 1
-	
+
 
 func _ready():
 	score = 0
 
 func _input(ev):
 	if ev.is_action_pressed('ui_accept'):
+		$Sprite.texture = shootingSprite
 		shooting = true
-	   
 
 
 func checkCollision(collision):
@@ -48,7 +52,7 @@ func checkCollision(collision):
 func _physics_process(_delta):
 	get_input()
 	if shooting or hitFloor:
-		velocity *= speed * shootingSpeed
+		velocity *= shootingSpeed
 	else:	
 		velocity *= speed
 	var collision = move_and_collide(velocity)
@@ -76,6 +80,7 @@ func _on_WallRight_body_exited(body):
 
 
 func _on_Floor_body_entered(body):
+	$Sprite.texture = flyingSprite
 	hitFloor = true
 	
 

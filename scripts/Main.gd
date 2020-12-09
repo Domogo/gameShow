@@ -19,12 +19,12 @@ func new_game():
 	$EnemyTimer.wait_time = 1
 	$EnemyTimer.start()
 	$Background/Image.visible = true
+	$GroundSprite.visible = true
 	print($EnemyTimer)
 
 
 func _process(_delta):
 	contestant_animation()
-
 
 
 func _on_WallLeft_body_entered(body):

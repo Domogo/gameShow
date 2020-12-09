@@ -41,7 +41,7 @@ Wednesday in every space sector, especially Eroticon Six!
 """
 
 var gameWonDialog = """Dearest Flixtrax' and Flixtraxes, three-eyed, seven-eared or triple breasted, doesn't matter -
- *WE GOT OUTSELVES A WINNER* and he's crawling up the stage right now! 
+ *WE GOT OURSELVES A WINNER* and he's crawling up the stage right now! 
 
 A big round of applause for #name, everyone! Come and get your reward - the Tesla car! How're you going to drive it, I wonder..
 """
@@ -69,8 +69,8 @@ func get_random_contestant():
 
 func choose_text_to_display():
 	if activeText == MAIN_MENU:
-		$RichTextLabel.text = gameWonDialog.replace("#name", contestantName)
-		$RichTextLabel.scroll_active = true
+		$RichTextLabel.text = mainMenuDialog.replace("#name", contestantName)
+		$RichTextLabel.scroll_active = false
 	if activeText == HOW_TO:
 		$RichTextLabel.text = howToDialog
 		$RichTextLabel.scroll_active = true

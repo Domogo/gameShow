@@ -107,4 +107,7 @@ func _on_Claw_pickedUpHuman():
 
 # When timer timout happens, it's game over
 func _on_Timer_Score_timer_timeout():
-	$Screens.game_won()
+	if $Claw.score > 500:
+		$Screens.game_won()
+	else:
+		$Screens.game_over()

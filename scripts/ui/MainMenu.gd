@@ -85,6 +85,7 @@ func toggle_active_text():
 
 
 func prepareGameLost():
+	$TeslaCarReward.visible = false
 	$RichTextLabel.text = gameLostDialog
 	$RichTextLabel.scroll_active = true
 

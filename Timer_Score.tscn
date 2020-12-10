@@ -12,17 +12,18 @@ layer = 10
 script = ExtResource( 2 )
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="."]
+visible = false
 anchor_right = 1.0
-margin_left = 10.0
-margin_right = -340.0
-margin_bottom = 51.0
-rect_scale = Vector2( 0.5, 0.5 )
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = 15.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ScoreContainer" type="HBoxContainer" parent="HBoxContainer2"]
-margin_right = 296.0
+margin_right = 606.0
 margin_bottom = 51.0
 size_flags_horizontal = 3
 __meta__ = {
@@ -46,8 +47,8 @@ __meta__ = {
 }
 
 [node name="TimerContainer" type="HBoxContainer" parent="HBoxContainer2"]
-margin_left = 300.0
-margin_right = 450.0
+margin_left = 610.0
+margin_right = 760.0
 margin_bottom = 51.0
 
 [node name="Time" type="Timer" parent="HBoxContainer2/TimerContainer"]

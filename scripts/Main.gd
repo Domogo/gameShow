@@ -10,6 +10,7 @@ var CONTESTANT_LOOKING_RIGHT = preload("res://assets/contestantLookingRight.png"
 var mobCounter = 0
 
 
+
 func _ready():
 	VisualServer.set_default_clear_color(Color("#4d1c46"))
 
@@ -21,6 +22,10 @@ func new_game():
 	$Background/Image.visible = true
 	$GroundSprite.visible = true
 	print($EnemyTimer)
+	
+	$Claw/Timer_Score.update_time()
+	
+	
 
 
 func _process(_delta):

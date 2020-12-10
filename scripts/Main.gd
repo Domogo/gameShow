@@ -120,3 +120,4 @@ func resetState():
 	get_tree().call_group("mobs","queue_free")
 	$Claw.score = 0
 	$Claw/Timer_Score.update_score($Claw.score)
+	$Claw.gameStarted = false

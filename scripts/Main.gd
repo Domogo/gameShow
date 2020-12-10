@@ -14,17 +14,19 @@ func _ready():
 
 
 func new_game():
+	$Claw/Timer_Score/HBoxContainer2/TimerContainer/Time.start()
 	$Claw.visible = true
 	$EnemyTimer.wait_time = 1
 	$EnemyTimer.start()
 	$Background/Image.visible = true
 	$GroundSprite.visible = true
-	print($EnemyTimer)
 	$Claw/Timer_Score.update_time()
 
 
 func _process(_delta):
+	$Claw/Timer_Score.update_time()
 	contestant_animation()
+
 
 
 func _on_WallLeft_body_entered(body):

@@ -8,7 +8,7 @@ var shootingSprite = preload("res://assets/clawShooting.png")
 export (int) var speed = 10
 export (int) var shootingSpeed = 20
 
-var score = 0
+var score
 var velocity = Vector2()
 var hitFloor = false
 var touchingLeftWall = false
@@ -33,6 +33,7 @@ func get_input():
 
 func _ready():
 	score = 0
+	$Timer_Score.update_score(score)
 
 func _input(ev):
 	if ev.is_action_pressed('ui_accept'):
@@ -44,7 +45,10 @@ func checkCollision(collision):
 	if(collision):
 		var inst = instance_from_id(collision.get_collider_id())
 		if inst is KinematicBody2D:
-			score += inst.pointsToGive
+			score +=  inst.pointsToGive
+			
+			$Timer_Score.update_score(score)
+			
 			inst.queue_free()
 			emit_signal("pickedUpHuman")
 

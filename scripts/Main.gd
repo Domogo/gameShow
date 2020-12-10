@@ -14,7 +14,9 @@ func _ready():
 
 
 func new_game():
+
 	$Claw/Timer_Score/HBoxContainer2.visible = true
+	$Claw.gameStarted = true
 	$Claw/Timer_Score/HBoxContainer2/TimerContainer/Time.start()
 	$Claw.visible = true
 	$EnemyTimer.wait_time = 1
@@ -42,57 +44,60 @@ func _on_WallRight_body_entered(body):
 		if(i.get_instance_id() == body.get_instance_id() and body.get_instance_id() != $Claw.get_instance_id()):
 			i.toggleDirection()
 
-
-func _on_EnemyTimer_timeout():
+func spawnMobs():
 	var mob
+	var rangeStart = 0
+	var rangeEnd = 15
+	if $Claw/Timer_Score/HBoxContainer2/TimerContainer/Time.get_time_left() <= 100:
+		rangeStart = 6
+	elif $Claw/Timer_Score/HBoxContainer2/TimerContainer/Time.get_time_left() <= 70:
+		rangeStart = 11
+	elif $Claw/Timer_Score/HBoxContainer2/TimerContainer/Time.get_time_left() <= 40:
+		rangeStart = 15
+		rangeEnd = 21
+	elif $Claw/Timer_Score/HBoxContainer2/TimerContainer/Time.get_time_left() <= 20:
+		rangeStart = 19
 	randomize()
-	var rollRange = floor(rand_range(0, 21))
-	
+	var rollRange = floor(rand_range(rangeStart, rangeEnd))
 	#man
 	if rollRange >= 0 and rollRange <= 5:
 		mob = Mob[7].instance()
 		mob.position = Vector2(rand_range(50, 750), 550)
 		add_child(mob)
-	#blondeWoman
+	#blondeWoman	
 	elif rollRange >= 6 and rollRange <= 9:
 		mob = Mob[1].instance()
-		mob.position = Vector2(rand_range(50, 750), 550)
-		add_child(mob)
 	#blondeMan
 	elif rollRange >= 10 and rollRange <= 12:
 		mob = Mob[4].instance()
-		mob.position = Vector2(rand_range(50, 750), 550)
-		add_child(mob)
 	#dog
 	elif rollRange >= 13 and rollRange <= 15:
 		mob = Mob[2].instance()
-		mob.position = Vector2(rand_range(50, 750), 550)
-		add_child(mob)
 	#brownHairMan
 	elif rollRange >= 16 and rollRange <= 18:
 		mob = Mob[5].instance()
-		mob.position = Vector2(rand_range(50, 750), 550)
-		add_child(mob)
 	#gingerMan
 	elif rollRange == 19:
 		mob = Mob[6].instance()
-		mob.position = Vector2(rand_range(50, 750), 550)
-		add_child(mob)
 	#redHead
 	elif rollRange == 20 :
 		mob = Mob[3].instance()
-		mob.position = Vector2(rand_range(50, 750), 550)
-		add_child(mob)
+	#ninja
 	elif rollRange == 21 :
 		mob = Mob[7].instance()
-		mob.position = Vector2(rand_range(50, 750), 550)
-		add_child(mob)
-	mobCounter += 1
-	if(mobCounter <= 10):
-		$EnemyTimer.wait_time = rand_range(1,2)
-		$EnemyTimer.start()
+	if mob:
+		mobCounter += 1
+	mob.position = Vector2(rand_range(50, 750), 550)
+	add_child(mob)
 
 
+func _on_EnemyTimer_timeout():
+	$EnemyTimer.wait_time = rand_range(1,2)
+	$EnemyTimer.start()
+	if(mobCounter < 10):
+		spawnMobs()
+	
+	
 func contestant_animation():
 	if $Claw.position.x < 200:
 		$Background/Image.texture = CONTESTANT_LOOKING_LEFT

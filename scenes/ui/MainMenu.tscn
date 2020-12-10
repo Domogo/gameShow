@@ -22,6 +22,9 @@ script = ExtResource( 3 )
 margin_right = 800.0
 margin_bottom = 600.0
 texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 custom_fonts/normal_font = SubResource( 1 )

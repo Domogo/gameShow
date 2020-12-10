@@ -22,7 +22,9 @@ tracks/0/keys = {
 "values": [ 0.0, 8.7, 0.0, -8.7 ]
 }
 
-[node name="BrunetteWoman" type="KinematicBody2D"]
+[node name="BrunetteWoman" type="KinematicBody2D" groups=[
+"mobs",
+]]
 rotation = -0.151844
 scale = Vector2( 1.5, 1.5 )
 collision_mask = 2

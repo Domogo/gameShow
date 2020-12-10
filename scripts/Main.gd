@@ -14,7 +14,7 @@ func _ready():
 
 
 func new_game():
-
+	resetState()
 	$Claw/Timer_Score/HBoxContainer2.visible = true
 	$Claw.gameStarted = true
 	$Claw/Timer_Score/HBoxContainer2/TimerContainer/Time.start()
@@ -62,8 +62,6 @@ func spawnMobs():
 	#man
 	if rollRange >= 0 and rollRange <= 5:
 		mob = Mob[0].instance()
-		mob.position = Vector2(rand_range(50, 750), 550)
-		add_child(mob)
 	#blondeWoman	
 	elif rollRange >= 6 and rollRange <= 9:
 		mob = Mob[1].instance()
@@ -116,3 +114,9 @@ func _on_Timer_Score_timer_timeout():
 		$Screens.game_won()
 	else:
 		$Screens.game_over()
+
+func resetState():
+	mobCounter = 0
+	get_tree().call_group("mobs","queue_free")
+	$Claw.score = 0
+	$Claw/Timer_Score.update_score($Claw.score)

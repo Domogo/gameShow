@@ -22,7 +22,9 @@ tracks/0/keys = {
 "values": [ 8.7, 8.7, 0.0, -8.7 ]
 }
 
-[node name="Man" type="KinematicBody2D"]
+[node name="Man" type="KinematicBody2D" groups=[
+"mobs",
+]]
 scale = Vector2( 1.5, 1.5 )
 script = ExtResource( 2 )
 pointsToGive = 10

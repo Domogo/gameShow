@@ -22,7 +22,9 @@ tracks/0/keys = {
 "values": [ 0.0, 90.0, 180.0, 270.0, 360.0 ]
 }
 
-[node name="Ninja" type="KinematicBody2D"]
+[node name="Ninja" type="KinematicBody2D" groups=[
+"mobs",
+]]
 rotation = 5.55682
 scale = Vector2( 1.5, 1.5 )
 script = ExtResource( 2 )

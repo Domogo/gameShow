@@ -9,27 +9,18 @@ var CONTESTANT_LOOKING_RIGHT = preload("res://assets/contestantLookingRight.png"
 
 var mobCounter = 0
 
-
-
 func _ready():
 	VisualServer.set_default_clear_color(Color("#4d1c46"))
 
 
 func new_game():
 	$Claw/Timer_Score/HBoxContainer2/TimerContainer/Time.start()
-	
 	$Claw.visible = true
 	$EnemyTimer.wait_time = 1
 	$EnemyTimer.start()
 	$Background/Image.visible = true
 	$GroundSprite.visible = true
-	
-	
-	
 	$Claw/Timer_Score.update_time()
-	
-	
-	
 
 
 func _process(_delta):
@@ -55,7 +46,6 @@ func _on_EnemyTimer_timeout():
 	var mob
 	randomize()
 	var rollRange = floor(rand_range(0, 21))
-	print(rollRange)
 	
 	#man
 	if rollRange >= 0 and rollRange <= 5:

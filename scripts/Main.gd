@@ -20,7 +20,6 @@ func new_game():
 	$EnemyTimer.start()
 	$Background/Image.visible = true
 	$GroundSprite.visible = true
-	print($EnemyTimer)
 
 
 func _process(_delta):
@@ -44,7 +43,6 @@ func _on_EnemyTimer_timeout():
 	var mob
 	randomize()
 	var rollRange = floor(rand_range(0, 21))
-	print(rollRange)
 	
 	#man
 	if rollRange >= 0 and rollRange <= 5:

@@ -28,7 +28,7 @@ tracks/0/keys = {
 rotation = 0.0865617
 scale = Vector2( 1.5, 1.5 )
 script = ExtResource( 2 )
-pointsToGive = -50
+pointsToGive = -30
 speed = 350
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

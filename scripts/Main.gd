@@ -60,7 +60,6 @@ func spawnMobs():
 		rangeStart = 6
 	randomize()
 	var rollRange = int(floor(rand_range(rangeStart, rangeEnd)))
-	print(rollRange)
 	#man
 	if rollRange >= 0 and rollRange <= 4:
 		mob = Mob[0].instance()
@@ -112,7 +111,7 @@ func _on_Claw_pickedUpHuman():
 
 # When timer timout happens, it's game over
 func _on_Timer_Score_timer_timeout():
-	if $Claw.score > 2500:
+	if $Claw.score > 2750:
 		$Screens.game_won()
 	else:
 		$Screens.game_over()

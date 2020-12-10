@@ -36,7 +36,8 @@ func _ready():
 	$Timer_Score.update_score(score)
 
 func _input(ev):
-	if ev.is_action_pressed('ui_accept') and hitFloor == false and shooting == false:
+
+	if ev.is_action_pressed('shoot') and hitFloor == false and shooting == false:
 		$Sprite.texture = shootingSprite
 		shooting = true
 		$Shoot.play()

@@ -10,7 +10,16 @@ func update_score(score):
 	$HBoxContainer2/ScoreContainer/Score.text = str(score)
 	
 func update_time():
-	var sec = $HBoxContainer2/TimerContainer/Time.time_left()
+	var sec = $HBoxContainer2/TimerContainer/Time.get_time_left()
+	
+	sec = int(sec) 
+	print(sec)
 	var minute = sec / 60
-	$HBoxContainer2/TimerContainer/Timer.text = str(minute) + ":" + str(sec)
+	sec = sec % 60
+	if sec < 10:
+		$HBoxContainer2/TimerContainer/Timer.text = str(minute) + ":0" + str(sec)
+	else:
+		$HBoxContainer2/TimerContainer/Timer.text = str(minute) + ":" + str(sec)
+
+		
 

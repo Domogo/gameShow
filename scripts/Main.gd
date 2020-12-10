@@ -62,25 +62,25 @@ func spawnMobs():
 	var rollRange = int(floor(rand_range(rangeStart, rangeEnd)))
 	print(rollRange)
 	#man
-	if rollRange >= 0 and rollRange <= 5:
+	if rollRange >= 0 and rollRange <= 4:
 		mob = Mob[0].instance()
 	#blondeWoman	
-	elif rollRange >= 6 and rollRange <= 9:
+	elif rollRange >= 5 and rollRange <= 8:
 		mob = Mob[1].instance()
 	#blondeMan
-	elif rollRange >= 10 and rollRange <= 12:
+	elif rollRange >= 9 and rollRange <= 11:
 		mob = Mob[4].instance()
 	#dog
-	elif rollRange == 13:
+	elif rollRange >= 12 and rollRange <= 13:
 		mob = Mob[2].instance()
 	#brownHairMan
 	elif rollRange >= 14 and rollRange <= 16:
 		mob = Mob[5].instance()
 	#gingerMan
-	elif rollRange >= 17 and rollRange <= 19:
+	elif rollRange >= 17 and rollRange <= 18:
 		mob = Mob[6].instance()
 	#redHead
-	elif rollRange == 20 :
+	elif rollRange >= 19 and rollRange <= 20 :
 		mob = Mob[3].instance()
 	#ninja
 	elif rollRange == 21 :

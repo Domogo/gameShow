@@ -8,6 +8,7 @@ var shootingSprite = preload("res://assets/clawShooting.png")
 export (int) var speed = 10
 export (int) var shootingSpeed = 20
 
+var gameStarted = false
 var score
 var velocity = Vector2()
 var hitFloor = false
@@ -36,6 +37,8 @@ func _ready():
 	$Timer_Score.update_score(score)
 
 func _input(ev):
+	if not gameStarted:
+		return
 	if ev.is_action_pressed('shoot') and hitFloor == false and shooting == false:
 		$Sprite.texture = shootingSprite
 		shooting = true

@@ -14,6 +14,7 @@ func _ready():
 
 
 func new_game():
+	$Claw.gameStarted = true
 	$Claw/Timer_Score/HBoxContainer2/TimerContainer/Time.start()
 	$Claw.visible = true
 	$EnemyTimer.wait_time = 1

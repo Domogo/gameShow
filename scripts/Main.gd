@@ -61,7 +61,7 @@ func spawnMobs():
 	var rollRange = floor(rand_range(rangeStart, rangeEnd))
 	#man
 	if rollRange >= 0 and rollRange <= 5:
-		mob = Mob[7].instance()
+		mob = Mob[0].instance()
 		mob.position = Vector2(rand_range(50, 750), 550)
 		add_child(mob)
 	#blondeWoman	

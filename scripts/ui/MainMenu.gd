@@ -86,13 +86,13 @@ func toggle_active_text():
 
 func prepareGameLost():
 	$TeslaCarReward.visible = false
-	$RichTextLabel.text = gameLostDialog
+	$RichTextLabel.text = gameLostDialog.replace("#name", contestantName)
 	$RichTextLabel.scroll_active = true
 
 
 func prepareGameWon():
 	$TeslaCarReward.visible = true
-	$RichTextLabel.text = gameWonDialog
+	$RichTextLabel.text = gameWonDialog.replace("#name", contestantName)
 	$RichTextLabel.scroll_active = true
 
 

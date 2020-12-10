@@ -48,17 +48,19 @@ func spawnMobs():
 	var mob
 	var rangeStart = 0
 	var rangeEnd = 15
-	if $Claw/Timer_Score/HBoxContainer2/TimerContainer/Time.get_time_left() <= 100:
+	var timeLeft = int($Claw/Timer_Score/HBoxContainer2/TimerContainer/Time.get_time_left())
+	if timeLeft <= 20:
 		rangeStart = 6
-	elif $Claw/Timer_Score/HBoxContainer2/TimerContainer/Time.get_time_left() <= 70:
+	elif timeLeft <= 40:
 		rangeStart = 11
-	elif $Claw/Timer_Score/HBoxContainer2/TimerContainer/Time.get_time_left() <= 40:
+	elif timeLeft <= 70:
 		rangeStart = 15
-		rangeEnd = 21
-	elif $Claw/Timer_Score/HBoxContainer2/TimerContainer/Time.get_time_left() <= 20:
+		rangeEnd = 22
+	elif timeLeft <= 100:
 		rangeStart = 19
 	randomize()
-	var rollRange = floor(rand_range(rangeStart, rangeEnd))
+	var rollRange = int(floor(rand_range(rangeStart, rangeEnd)))
+	print(rollRange)
 	#man
 	if rollRange >= 0 and rollRange <= 5:
 		mob = Mob[0].instance()
@@ -69,13 +71,13 @@ func spawnMobs():
 	elif rollRange >= 10 and rollRange <= 12:
 		mob = Mob[4].instance()
 	#dog
-	elif rollRange >= 13 and rollRange <= 15:
+	elif rollRange == 13:
 		mob = Mob[2].instance()
 	#brownHairMan
-	elif rollRange >= 16 and rollRange <= 18:
+	elif rollRange >= 14 and rollRange <= 16:
 		mob = Mob[5].instance()
 	#gingerMan
-	elif rollRange == 19:
+	elif rollRange >= 17 and rollRange <= 19:
 		mob = Mob[6].instance()
 	#redHead
 	elif rollRange == 20 :
@@ -110,7 +112,7 @@ func _on_Claw_pickedUpHuman():
 
 # When timer timout happens, it's game over
 func _on_Timer_Score_timer_timeout():
-	if $Claw.score > 500:
+	if $Claw.score > 3500:
 		$Screens.game_won()
 	else:
 		$Screens.game_over()

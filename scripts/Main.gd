@@ -14,6 +14,7 @@ func _ready():
 
 
 func new_game():
+	$Claw/Timer_Score/HBoxContainer2.visible = true
 	$Claw/Timer_Score/HBoxContainer2/TimerContainer/Time.start()
 	$Claw.visible = true
 	$EnemyTimer.wait_time = 1
@@ -52,7 +53,7 @@ func _on_EnemyTimer_timeout():
 		mob = Mob[7].instance()
 		mob.position = Vector2(rand_range(50, 750), 550)
 		add_child(mob)
-	#blondeWoman	
+	#blondeWoman
 	elif rollRange >= 6 and rollRange <= 9:
 		mob = Mob[1].instance()
 		mob.position = Vector2(rand_range(50, 750), 550)
@@ -103,3 +104,7 @@ func contestant_animation():
 
 func _on_Claw_pickedUpHuman():
 	mobCounter -= 1
+
+# When timer timout happens, it's game over
+func _on_Timer_Score_timer_timeout():
+	$Screens.game_won()

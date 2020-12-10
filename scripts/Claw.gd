@@ -86,11 +86,11 @@ func _on_WallRight_body_exited(body):
 		touchingRightWall = false
 
 
-func _on_Floor_body_entered(body):
+func _on_Floor_body_entered(_body):
 	$Sprite.texture = flyingSprite
 	hitFloor = true
 	
 
-func _on_Ceiling_body_entered(body):
+func _on_Ceiling_body_entered(_body):
 	shooting = false
 	hitFloor = false

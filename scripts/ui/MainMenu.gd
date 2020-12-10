@@ -68,6 +68,7 @@ func get_random_contestant():
 
 
 func choose_text_to_display():
+	$TeslaCarReward.visible = false
 	if activeText == MAIN_MENU:
 		$RichTextLabel.text = mainMenuDialog.replace("#name", contestantName)
 		$RichTextLabel.scroll_active = false
@@ -81,6 +82,17 @@ func toggle_active_text():
 		activeText = HOW_TO
 	else:
 		activeText = MAIN_MENU
+
+
+func prepareGameLost():
+	$RichTextLabel.text = gameLostDialog
+	$RichTextLabel.scroll_active = true
+
+
+func prepareGameWon():
+	$TeslaCarReward.visible = true
+	$RichTextLabel.text = gameWonDialog
+	$RichTextLabel.scroll_active = true
 
 
 func appear():

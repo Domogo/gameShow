@@ -36,4 +36,9 @@ func change_screen(new_screen):
 
 
 func game_over():
-	change_screen($GameOverScreen)
+	$MainMenu.prepareGameLost()
+	change_screen($MainMenu)
+
+func game_won():
+	$MainMenu.prepareGameWon()
+	change_screen($MainMenu)

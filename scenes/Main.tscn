@@ -69,6 +69,7 @@ rotation = 1.5708
 z_index = 1
 [connection signal="start_game" from="Screens" to="." method="new_game"]
 [connection signal="pickedUpHuman" from="Claw" to="." method="_on_Claw_pickedUpHuman"]
+[connection signal="timer_timeout" from="Claw/Timer_Score" to="." method="_on_Timer_Score_timer_timeout"]
 [connection signal="body_entered" from="WallLeft" to="." method="_on_WallLeft_body_entered"]
 [connection signal="body_entered" from="WallLeft" to="Claw" method="_on_WallLeft_body_entered"]
 [connection signal="body_exited" from="WallLeft" to="Claw" method="_on_WallLeft_body_exited"]

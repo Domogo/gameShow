@@ -30,7 +30,7 @@ a brand new, preserved in the vacuum of space, Tesla car!
 Here's the thing, not all humans are the same, some are harder to catch than others. Oh and there's dogs. We like those very much, so try to leave them be!
 
 Use LEFT and RIGHT ARROW KEYS to move and SPACE to shoot the spaceship down to pick up a human!
-To win, contestant has to score at least 2500 points before the timer runs out.
+To win, contestant has to score at least 2750 points before the timer runs out.
 """
 
 var gameLostDialog = """D'awww shucks!! If I weren't getting paid to keep this smile on me at all times, I'd

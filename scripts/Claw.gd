@@ -36,9 +36,10 @@ func _ready():
 	$Timer_Score.update_score(score)
 
 func _input(ev):
-	if ev.is_action_pressed('ui_accept'):
+	if ev.is_action_pressed('ui_accept') and hitFloor == false and shooting == false:
 		$Sprite.texture = shootingSprite
 		shooting = true
+		$Shoot.play()
 
 
 func checkCollision(collision):
@@ -51,6 +52,7 @@ func checkCollision(collision):
 			
 			inst.queue_free()
 			emit_signal("pickedUpHuman")
+			$Pickup.play()
 
 
 func _physics_process(_delta):

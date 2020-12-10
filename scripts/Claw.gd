@@ -60,7 +60,7 @@ func _physics_process(_delta):
 	get_input()
 	if shooting or hitFloor:
 		velocity *= shootingSpeed
-	else:	
+	else:
 		velocity *= speed
 	var collision = move_and_collide(velocity)
 	checkCollision(collision)

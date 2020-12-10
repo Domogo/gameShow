@@ -36,7 +36,6 @@ func _ready():
 	$Timer_Score.update_score(score)
 
 func _input(ev):
-
 	if ev.is_action_pressed('shoot') and hitFloor == false and shooting == false:
 		$Sprite.texture = shootingSprite
 		shooting = true
@@ -48,9 +47,7 @@ func checkCollision(collision):
 		var inst = instance_from_id(collision.get_collider_id())
 		if inst is KinematicBody2D:
 			score +=  inst.pointsToGive
-			
 			$Timer_Score.update_score(score)
-			
 			inst.queue_free()
 			emit_signal("pickedUpHuman")
 			$Pickup.play()
